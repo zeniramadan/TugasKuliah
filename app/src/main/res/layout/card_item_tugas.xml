@@ -109,70 +109,43 @@
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Action Buttons (Edit, Hapus, Selesai) -->
+        <!-- Action Buttons -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="4dp">
+            android:gravity="end|center_vertical"
+            android:layout_marginTop="8dp">
 
             <!-- Edit Button -->
-            <ImageView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/editButton"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/edit_button"
-                app:tint="?attr/colorOnSecondaryContainer"
-                android:padding="8dp"
-                android:background="@drawable/bg_button"
-                android:layout_marginEnd="6dp"
-                android:backgroundTint="?attr/colorSecondaryContainer"
-                android:contentDescription="Edit" />
+                style="?attr/materialIconButtonFilledTonalStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:icon="@drawable/edit_button"
+                android:contentDescription="Edit"/>
 
             <!-- Delete Button -->
-            <ImageView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/deleteButton"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/delete_button"
-                app:tint="?attr/colorError"
-                android:padding="8dp"
-                android:background="@drawable/bg_button"
-                android:backgroundTint="?attr/colorErrorContainer"
-                android:contentDescription="Hapus"
-                android:layout_marginEnd="6dp" />
+                style="?attr/materialIconButtonFilledStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:icon="@drawable/delete_button"
+                app:backgroundTint="?attr/colorErrorContainer"
+                app:iconTint="?attr/colorOnErrorContainer"
+                android:contentDescription="Hapus"/>
 
-            <!-- Done Button (text + icon) -->
-            <LinearLayout
+            <!-- Done Button -->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/doneButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/bg_button"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-                android:backgroundTint="?attr/colorPrimary"
-                android:gravity="center">
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:src="@drawable/done_button"
-                    app:tint="?attr/colorOnPrimary"
-                    android:contentDescription="Selesai" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Selesai"
-                    android:textColor="?attr/colorOnPrimary"
-                    android:textSize="12sp"
-                    android:textStyle="bold"
-                    android:layout_marginStart="4dp" />
-            </LinearLayout>
+                android:text="Selesai"
+                app:icon="@drawable/done_button" />
 
         </LinearLayout>
     </LinearLayout>

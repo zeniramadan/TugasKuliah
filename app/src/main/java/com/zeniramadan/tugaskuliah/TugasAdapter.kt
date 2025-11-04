@@ -6,23 +6,24 @@ import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.button.MaterialButton
 
 class TugasAdapter(private var tugas: List<Tugas>, context: Context) : RecyclerView.Adapter<TugasAdapter.TugasViewHolder>() {
 
-    class TugasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val editButton: ImageView = itemView.findViewById(R.id.editButton)
-        val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
+    private val db: DatabaseHelper = DatabaseHelper(context)
+
+    class TugasViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val namaTugasTextView: TextView = itemView.findViewById(R.id.namaTugasTextView)
         val mataKuliahTextView: TextView = itemView.findViewById(R.id.mataKuliahTextView)
         val namaDosenTextView: TextView = itemView.findViewById(R.id.namaDosenTextView)
         val deadlineTextView: TextView = itemView.findViewById(R.id.deadlineTextView)
+        val editButton: MaterialButton = itemView.findViewById(R.id.editButton)
+        val deleteButton: MaterialButton = itemView.findViewById(R.id.deleteButton)
+        val doneButton: MaterialButton = itemView.findViewById(R.id.doneButton)
     }
-
-    private val db : DatabaseHelper = DatabaseHelper(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TugasViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_item_tugas, parent, false)
@@ -39,13 +40,16 @@ class TugasAdapter(private var tugas: List<Tugas>, context: Context) : RecyclerV
         // Visual cue for completed tasks
         if (tugas.status) {
             holder.namaTugasTextView.paintFlags = holder.namaTugasTextView.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-            holder.itemView.alpha = 0.5f
+            holder.itemView.alpha = 0.6f
+            holder.doneButton.visibility = View.GONE
+            holder.editButton.visibility = View.GONE
         } else {
             holder.namaTugasTextView.paintFlags = holder.namaTugasTextView.paintFlags and Paint.STRIKE_THRU_TEXT_FLAG.inv()
             holder.itemView.alpha = 1.0f
+            holder.doneButton.visibility = View.VISIBLE
+            holder.editButton.visibility = View.VISIBLE
         }
 
-        // Set OnClickListener for the whole item view
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailTugasActivity::class.java).apply {
                 putExtra("tugas_id", tugas.id)
@@ -63,14 +67,20 @@ class TugasAdapter(private var tugas: List<Tugas>, context: Context) : RecyclerV
         holder.deleteButton.setOnClickListener {
             db.deleteDataTugas(tugas.id)
             refreshData(db.getAllTugas())
-            Toast.makeText(holder.itemView.context, "Data Berhasil Dihapus", Toast.LENGTH_SHORT).show()
+            Toast.makeText(holder.itemView.context, "Tugas Dihapus", Toast.LENGTH_SHORT).show()
+        }
+
+        holder.doneButton.setOnClickListener {
+            db.updateStatus(tugas.id, true)
+            refreshData(db.getAllTugas())
+            Toast.makeText(holder.itemView.context, "Tugas Selesai!", Toast.LENGTH_SHORT).show()
         }
     }
+
+    override fun getItemCount(): Int = tugas.size
 
     fun refreshData(newData: List<Tugas>) {
         tugas = newData
         notifyDataSetChanged()
     }
-
-    override fun getItemCount(): Int = tugas.size
 }
