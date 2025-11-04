@@ -7,7 +7,7 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
-    android:backgroundTint="@color/white">
+    app:cardBackgroundColor="?attr/colorSurfaceContainer">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:text="Nama Tugas"
-            android:textColor="@color/textPrimary"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
             android:textStyle="bold"
             android:fontFamily="sans-serif-medium"
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginBottom="10dp"
-            android:background="@color/divider" />
+            android:background="?attr/colorOutline" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:text="Mata Kuliah: "
                 android:textSize="14sp"
-                android:textColor="@color/textSecondary" />
+                android:textColor="?attr/colorOnSurfaceVariant" />
 
             <TextView
                 android:id="@+id/mataKuliahTextView"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Mata Kuliah"
-                android:textColor="@color/textSecondary"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="Dosen: "
                 android:textSize="14sp"
-                android:textColor="@color/textSecondary" />
+                android:textColor="?attr/colorOnSurfaceVariant" />
 
             <TextView
                 android:id="@+id/namaDosenTextView"
@@ -79,7 +79,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Nama Dosen Pengampu"
-                android:textColor="@color/textSecondary"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -87,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/backgroundLight"
+            android:background="?attr/colorSurfaceContainerLowest"
             android:padding="10dp"
             android:layout_marginBottom="12dp">
 
@@ -96,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="Deadline: "
                 android:textSize="14sp"
-                android:textColor="@color/textSecondary" />
+                android:textColor="?attr/colorOnSurfaceVariant" />
 
             <TextView
                 android:id="@+id/deadlineTextView"
@@ -104,68 +104,76 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Deadline"
-                android:textColor="@color/danger"
+                android:textColor="?attr/colorError"
                 android:textSize="14sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
-        <!-- Action Buttons -->
+        <!-- Action Buttons (Edit, Hapus, Selesai) -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="end">
+            android:gravity="end"
+            android:layout_marginTop="4dp">
 
+            <!-- Edit Button -->
+            <ImageView
+                android:id="@+id/editButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/edit_button"
+                app:tint="?attr/colorOnSecondaryContainer"
+                android:padding="8dp"
+                android:background="@drawable/bg_button"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="?attr/colorSecondaryContainer"
+                android:contentDescription="Edit" />
+
+            <!-- Delete Button -->
+            <ImageView
+                android:id="@+id/deleteButton"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/delete_button"
+                app:tint="?attr/colorError"
+                android:padding="8dp"
+                android:background="@drawable/bg_button"
+                android:backgroundTint="?attr/colorErrorContainer"
+                android:contentDescription="Hapus"
+                android:layout_marginEnd="6dp" />
+
+            <!-- Done Button (text + icon) -->
             <LinearLayout
                 android:id="@+id/doneButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/card_background"
+                android:background="@drawable/bg_button"
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:paddingTop="8dp"
                 android:paddingBottom="8dp"
-                android:gravity="center"
-                android:layout_marginEnd="6dp">
+                android:backgroundTint="?attr/colorPrimary"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="18dp"
                     android:layout_height="18dp"
                     android:src="@drawable/done_button"
-                    app:tint="@color/success"
+                    app:tint="?attr/colorOnPrimary"
                     android:contentDescription="Selesai" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Selesai"
-                    android:textColor="@color/success"
+                    android:textColor="?attr/colorOnPrimary"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:layout_marginStart="4dp" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/editButton"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/edit_button"
-                app:tint="@color/primary"
-                android:padding="8dp"
-                android:background="@drawable/card_background"
-                android:layout_marginEnd="6dp"
-                android:contentDescription="Edit" />
-
-            <ImageView
-                android:id="@+id/deleteButton"
-                android:layout_width="36dp"
-                android:layout_height="36dp"
-                android:src="@drawable/delete_button"
-                app:tint="@color/danger"
-                android:padding="8dp"
-                android:background="@drawable/card_background"
-                android:contentDescription="Hapus" />
         </LinearLayout>
     </LinearLayout>
 

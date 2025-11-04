@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgroundLight"
+    android:background="?attr/colorSurface"
     tools:context=".MainActivity">
 
     <!-- Header with Theme Toggle -->
@@ -15,11 +15,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:background="@color/white"
+        android:background="?attr/colorSurfaceContainer"
         android:orientation="horizontal"
         android:padding="20dp"
         android:gravity="center_vertical"
-        android:elevation="4dp">
+        android:elevation="4dp"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -32,7 +33,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tugas Kuliah"
-                android:textColor="@color/textPrimary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:fontFamily="sans-serif-medium" />
@@ -42,14 +43,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
                 android:text="Kelola tugasmu dengan mudah"
-                android:textColor="@color/textSecondary"
+                android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="13sp" />
         </LinearLayout>
 
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/themeSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/themeToggleButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="10dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Ganti Tema"
+            app:tint="?attr/colorOnSurface" />
 
     </LinearLayout>
 
@@ -60,7 +65,8 @@
         android:layout_below="@id/headerLayout"
         android:padding="12dp"
         android:clipToPadding="false"
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:layoutAnimation="@anim/layout_animation_fall_down" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/TombolTambah"
@@ -72,8 +78,8 @@
         android:layout_marginBottom="20dp"
         android:contentDescription="Tambah Tugas"
         android:src="@drawable/outline_add_24"
-        app:backgroundTint="@color/blue"
-        app:tint="@color/white"
+        app:backgroundTint="?attr/colorPrimary"
+        app:tint="?attr/colorOnPrimary"
         app:elevation="6dp"
         app:borderWidth="0dp" />
 

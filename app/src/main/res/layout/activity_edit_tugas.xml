@@ -7,14 +7,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/backgroundLight"
+    android:background="?attr/colorSurface"
     tools:context=".AddTugasActivity">
 
     <!-- Header Simple -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="?attr/colorSurfaceContainer"
         android:padding="20dp"
         android:elevation="4dp">
 
@@ -22,12 +22,11 @@
             android:id="@+id/editTugasHeading"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="Edit Tugas"
             android:layout_centerInParent="true"
+            android:text="Edit Tugas"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:textColor="@color/textPrimary"
+            android:textColor="?attr/colorOnSurface"
             android:fontFamily="sans-serif-medium" />
 
     </RelativeLayout>
@@ -48,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nama Tugas"
-                android:textColor="@color/textPrimary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="6dp" />
@@ -59,8 +58,8 @@
                 android:layout_height="50dp"
                 android:background="@drawable/input_selector"
                 android:hint="Masukkan nama tugas..."
-                android:textColorHint="@color/textTertiary"
-                android:textColor="@color/textPrimary"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
                 android:layout_marginBottom="16dp" />
 
@@ -68,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mata Kuliah"
-                android:textColor="@color/textPrimary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="6dp" />
@@ -79,8 +78,8 @@
                 android:layout_height="50dp"
                 android:background="@drawable/input_selector"
                 android:hint="Masukkan mata kuliah..."
-                android:textColorHint="@color/textTertiary"
-                android:textColor="@color/textPrimary"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
                 android:layout_marginBottom="16dp" />
 
@@ -88,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Dosen Pengampu"
-                android:textColor="@color/textPrimary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="6dp" />
@@ -99,8 +98,8 @@
                 android:layout_height="50dp"
                 android:background="@drawable/input_selector"
                 android:hint="Masukkan nama dosen..."
-                android:textColorHint="@color/textTertiary"
-                android:textColor="@color/textPrimary"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
                 android:layout_marginBottom="16dp" />
 
@@ -108,7 +107,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Deskripsi"
-                android:textColor="@color/textPrimary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="6dp" />
@@ -119,8 +118,8 @@
                 android:layout_height="100dp"
                 android:background="@drawable/input_selector"
                 android:hint="Masukkan deskripsi..."
-                android:textColorHint="@color/textTertiary"
-                android:textColor="@color/textPrimary"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="15sp"
                 android:gravity="top"
                 android:layout_marginBottom="16dp" />
@@ -129,7 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Deadline"
-                android:textColor="@color/textPrimary"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="13sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="6dp" />
@@ -140,8 +139,8 @@
                 android:layout_height="50dp"
                 android:background="@drawable/input_selector"
                 android:hint="Pilih tanggal dan waktu..."
-                android:textColorHint="@color/textTertiary"
-                android:textColor="@color/textPrimary"
+                android:textColorHint="?attr/colorOnSurfaceVariant"
+                android:textColor="@color/danger"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
                 android:paddingStart="16dp"
@@ -166,7 +165,7 @@
         app:backgroundTint="@color/blue"
         app:cornerRadius="12dp"
         app:iconPadding="8dp"
-        app:iconTint="@color/white"
+        app:iconTint="?attr/colorOnPrimary"
         app:icon="@drawable/save_button"/>
 
 </LinearLayout>
