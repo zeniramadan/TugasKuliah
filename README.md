@@ -851,7 +851,7 @@ for educational and non-commercial purposes only.
 
 | Contributor | Role | Responsibilities |
 |-------------|------|------------------|
-| **Zeni Ramadan** | Team Leader & Ideation | Konsep aplikasi, koordinasi tim, fitur planning, dokumentasi |
+| **Zeni Ramadan** | Team Leader & Ideation | Konsep aplikasi, koordinasi tim, fitur planning, code implementation, dokumentasi |
 | **Rifa Maulana** | Bug Fixer & Developer | Debugging, code optimization, bug fixes, improvements |
 | **Salma Oktania** | UI/UX Designer | Interface design, layout, theming, user experience |
 
